@@ -206,3 +206,125 @@
   .team-grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-4); }
   .timeline { padding-left: var(--space-8); }
 }
+
+@media (max-width: 480px) {
+  .about-hero {
+    padding-block: var(--space-12);
+  }
+
+  .about-hero h1 {
+    margin-bottom: var(--space-4);
+  }
+
+  .about-hero p {
+    font-size: 14px;
+    max-width: 100%;
+    margin-bottom: var(--space-6);
+  }
+
+  .mission-vision {
+    padding-block: var(--space-12);
+  }
+
+  .mv-tabs {
+    flex-wrap: wrap;
+    margin-bottom: var(--space-6);
+    gap: var(--space-2);
+  }
+
+  .mv-tab {
+    font-size: 10px;
+    padding: 10px 12px;
+  }
+
+  .mv-panel p {
+    font-size: 14px;
+    max-width: 100%;
+    line-height: 1.7;
+  }
+
+  .history {
+    padding-block: var(--space-12);
+  }
+
+  .history__header {
+    margin-bottom: var(--space-8);
+  }
+
+  .timeline {
+    padding-left: var(--space-6);
+  }
+
+  .timeline::before {
+    left: -4px;
+  }
+
+  .timeline-item {
+    padding-bottom: var(--space-8);
+  }
+
+  .timeline-item::before {
+    left: calc(-1 * var(--space-6));
+    width: 6px;
+    height: 6px;
+  }
+
+  .timeline-item__year {
+    font-size: 9px;
+    padding: 2px 8px;
+    margin-bottom: var(--space-2);
+  }
+
+  .timeline-item h3 {
+    font-size: 1rem;
+    margin-bottom: var(--space-2);
+  }
+
+  .timeline-item p {
+    font-size: 13px;
+    max-width: 100%;
+  }
+
+  .leadership {
+    padding-block: var(--space-12);
+  }
+
+  .leadership__header {
+    margin-bottom: var(--space-8);
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+  }
+
+  .team-card {
+    gap: var(--space-2);
+  }
+
+  .team-card__name {
+    font-size: 10px;
+    margin-top: var(--space-1);
+  }
+
+  .team-card__role {
+    font-size: 9px;
+  }
+
+  .join-cta {
+    padding-block: var(--space-12);
+  }
+
+  .join-cta h2 {
+    margin-bottom: var(--space-4);
+  }
+
+  .join-cta__actions {
+    gap: var(--space-3);
+    flex-direction: column;
+  }
+
+  .join-cta__actions .btn {
+    width: 100%;
+  }
+}
