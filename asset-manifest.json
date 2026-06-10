@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/WebClient-Kelompok4/static/css/main.c9ed2253.css",
-    "main.js": "/WebClient-Kelompok4/static/js/main.a1029d62.js",
+    "main.css": "/WebClient-Kelompok4/static/css/main.8c585a6d.css",
+    "main.js": "/WebClient-Kelompok4/static/js/main.16c8eb6c.js",
     "static/js/453.18aaeb0b.chunk.js": "/WebClient-Kelompok4/static/js/453.18aaeb0b.chunk.js",
     "index.html": "/WebClient-Kelompok4/index.html",
-    "main.c9ed2253.css.map": "/WebClient-Kelompok4/static/css/main.c9ed2253.css.map",
-    "main.a1029d62.js.map": "/WebClient-Kelompok4/static/js/main.a1029d62.js.map",
+    "main.8c585a6d.css.map": "/WebClient-Kelompok4/static/css/main.8c585a6d.css.map",
+    "main.16c8eb6c.js.map": "/WebClient-Kelompok4/static/js/main.16c8eb6c.js.map",
     "453.18aaeb0b.chunk.js.map": "/WebClient-Kelompok4/static/js/453.18aaeb0b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c9ed2253.css",
-    "static/js/main.a1029d62.js"
+    "static/css/main.8c585a6d.css",
+    "static/js/main.16c8eb6c.js"
   ]
 }
