@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/WebClient-Kelompok4/static/css/main.8c585a6d.css",
+    "main.css": "/WebClient-Kelompok4/static/css/main.33259dc6.css",
     "main.js": "/WebClient-Kelompok4/static/js/main.16c8eb6c.js",
     "static/js/453.18aaeb0b.chunk.js": "/WebClient-Kelompok4/static/js/453.18aaeb0b.chunk.js",
     "index.html": "/WebClient-Kelompok4/index.html",
-    "main.8c585a6d.css.map": "/WebClient-Kelompok4/static/css/main.8c585a6d.css.map",
+    "main.33259dc6.css.map": "/WebClient-Kelompok4/static/css/main.33259dc6.css.map",
     "main.16c8eb6c.js.map": "/WebClient-Kelompok4/static/js/main.16c8eb6c.js.map",
     "453.18aaeb0b.chunk.js.map": "/WebClient-Kelompok4/static/js/453.18aaeb0b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8c585a6d.css",
+    "static/css/main.33259dc6.css",
     "static/js/main.16c8eb6c.js"
   ]
 }
