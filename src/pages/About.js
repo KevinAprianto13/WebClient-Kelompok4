@@ -128,20 +128,6 @@ function About() {
         </div>
       </section>
 
-      <footer className="footer">
-        <div className="container footer__inner">
-          <span className="footer__logo">ARCHI-TECH</span>
-          <div className="footer__links">
-            <a href="/#">Privacy Policy</a>
-            <a href="/#">Terms of Service</a>
-            <a href="/#">Cookies</a>
-            <a href="/#">Sitemap</a>
-            <a href="/#">Twitter</a>
-            <a href="/#">LinkedIn</a>
-          </div>
-          <span className="footer__copy">© 2024 ARCHI-TECH Global Systems. All rights reserved.</span>
-        </div>
-      </footer>
     </main>
   );
 }

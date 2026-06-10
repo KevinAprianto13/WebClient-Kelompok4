@@ -259,6 +259,59 @@ textarea.form-control {
   gap: var(--space-4);
 }
 
+/* ===========================
+   Footer
+   =========================== */
+
+.footer {
+  border-top: 1px solid var(--color-gray-200);
+  padding-block: var(--space-8);
+}
+
+.footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.footer__logo {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  justify-content: center;
+  flex: 1 1 auto;
+}
+
+.footer__links a {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-gray-600);
+  transition: color var(--transition-fast);
+}
+
+.footer__links a:hover {
+  color: var(--color-black);
+}
+
+.footer__copy {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  color: var(--color-gray-500);
+  white-space: nowrap;
+}
+
 /* Hamburger (mobile) */
 .navbar__hamburger {
   display: none;
