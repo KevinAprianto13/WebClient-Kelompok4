@@ -1,0 +1,405 @@
+/* ===========================
+   ARCHI-TECH — About Page
+   =========================== */
+
+/* Page Header
+   ─────────────────────────── */
+.about-hero {
+  border-bottom: var(--border-thin);
+  padding-block: var(--space-20);
+}
+
+.about-hero__grid {
+  display: grid;
+  grid-template-columns: 1.8fr 1.1fr;
+  gap: var(--space-12);
+  align-items: center;
+}
+
+.about-hero h1,
+.mission-vision h2,
+.history h2,
+.leadership h2,
+.join-cta h2 {
+  font-family: var(--font-body) !important;
+  text-transform: none !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+}
+
+.about-hero__label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--color-gray-600);
+  display: inline-block;
+  margin-bottom: var(--space-4);
+}
+
+.about-hero p {
+  font-size: 1rem;
+  max-width: 56ch;
+  margin-top: var(--space-4);
+}
+
+.wireframe-placeholder--hero {
+  width: 100%;
+  height: 280px;
+}
+
+.about-hero__image {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border: 1px solid var(--color-gray-200);
+}
+
+/* Mission / Vision
+   ─────────────────────────── */
+.mission-vision {
+  border-bottom: var(--border-thin);
+}
+
+.mission-vision__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+}
+
+.mission-vision__column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.placeholder-text-lines {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.placeholder-text-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.placeholder-line {
+  height: 12px;
+  background: var(--color-gray-200);
+  border-radius: 1px;
+}
+
+.placeholder-line--100 { width: 100%; }
+.placeholder-line--85 { width: 85%; }
+.placeholder-line--70 { width: 70%; }
+
+/* History / Timeline
+   ─────────────────────────── */
+.history {
+  background: var(--color-gray-50);
+  border-bottom: var(--border-thin);
+}
+
+.history__header { margin-bottom: var(--space-12); }
+
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-left: 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 12px;
+  bottom: 0;
+  width: 1px;
+  background: var(--color-gray-200);
+}
+
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding-bottom: var(--space-12);
+  box-sizing: border-box;
+}
+.timeline-item:last-child { padding-bottom: 0; }
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-gray-400); /* default gray dot */
+  border: 2px solid var(--color-white);
+  box-shadow: 0 0 0 1px var(--color-gray-400);
+  top: 12px;
+  z-index: 1;
+}
+
+.timeline-item:nth-child(odd) {
+  left: 0;
+  padding-right: var(--space-12);
+  text-align: right;
+}
+.timeline-item:nth-child(odd)::before {
+  right: -6px;
+}
+
+.timeline-item:nth-child(even) {
+  left: 50%;
+  padding-left: var(--space-12);
+  text-align: left;
+}
+.timeline-item:nth-child(even)::before {
+  left: -6px;
+}
+
+/* Specific first item black dot */
+.timeline-item:nth-child(1)::before {
+  background: var(--color-black);
+  box-shadow: 0 0 0 1px var(--color-black);
+}
+
+.timeline-item__year {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  padding: 4px 12px;
+  margin-bottom: var(--space-3);
+}
+
+.timeline-item__year--solid {
+  background: var(--color-black);
+  color: var(--color-white);
+  border: 1px solid var(--color-black);
+}
+
+.timeline-item__year--outline {
+  background: transparent;
+  color: var(--color-black);
+  border: 1px solid var(--color-gray-300);
+}
+
+.timeline-item h3 {
+  font-size: 1.1rem;
+  margin-bottom: var(--space-3);
+}
+
+.timeline-item p {
+  font-size: 0.9rem;
+  max-width: 56ch;
+}
+
+/* Leadership
+   ─────────────────────────── */
+.leadership {
+  border-bottom: var(--border-thin);
+}
+
+.leadership__header { margin-bottom: var(--space-12); text-align: center; }
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+}
+
+.team-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.team-card__photo {
+  aspect-ratio: 1 / 1.1;
+  background: var(--color-gray-100);
+  border: 1px solid var(--color-gray-200);
+  overflow: hidden;
+  position: relative;
+}
+
+.team-card__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.team-card__name {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-top: var(--space-2);
+}
+
+.team-card__role {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-gray-400);
+}
+
+/* Join CTA
+   ─────────────────────────── */
+.join-cta {
+  background: var(--color-black);
+  color: var(--color-white);
+  padding-block: var(--space-20);
+  text-align: center;
+}
+
+.join-cta h2 { color: var(--color-white); margin-bottom: var(--space-6); }
+
+.join-cta__actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+/* ─── Responsive ──────────── */
+@media (max-width: 900px) {
+  .about-hero__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+  .wireframe-placeholder--hero {
+    height: 200px;
+  }
+  .about-hero__image {
+    height: 200px;
+  }
+  .mission-vision__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 4px;
+    transform: none;
+  }
+  .timeline-item {
+    width: 100% !important;
+    left: 0 !important;
+    padding-left: var(--space-8) !important;
+    padding-right: 0 !important;
+    text-align: left !important;
+  }
+  .timeline-item::before {
+    left: 0px !important;
+    right: auto !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-hero {
+    padding-block: var(--space-12);
+  }
+
+  .about-hero h1 {
+    margin-bottom: var(--space-4);
+  }
+
+  .about-hero p {
+    font-size: 14px;
+    max-width: 100%;
+    margin-top: var(--space-3);
+  }
+
+  .mission-vision {
+    padding-block: var(--space-12);
+  }
+
+  .history {
+    padding-block: var(--space-12);
+  }
+
+  .history__header {
+    margin-bottom: var(--space-8);
+  }
+
+  .timeline {
+    padding-left: var(--space-6);
+  }
+
+  .timeline::before {
+    left: -4px;
+  }
+
+  .timeline-item {
+    padding-bottom: var(--space-8);
+  }
+
+  .timeline-item::before {
+    left: calc(-1 * var(--space-6));
+    width: 6px;
+    height: 6px;
+  }
+
+  .timeline-item__year {
+    font-size: 9px;
+    padding: 2px 8px;
+    margin-bottom: var(--space-2);
+  }
+
+  .timeline-item h3 {
+    font-size: 1rem;
+    margin-bottom: var(--space-2);
+  }
+
+  .leadership {
+    padding-block: var(--space-12);
+  }
+
+  .leadership__header {
+    margin-bottom: var(--space-8);
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+  }
+
+  .team-card {
+    gap: var(--space-2);
+  }
+
+  .team-card__name {
+    font-size: 10px;
+    margin-top: var(--space-1);
+  }
+
+  .team-card__role {
+    font-size: 9px;
+  }
+
+  .join-cta {
+    padding-block: var(--space-12);
+  }
+
+  .join-cta h2 {
+    margin-bottom: var(--space-4);
+  }
+
+  .join-cta__actions {
+    gap: var(--space-3);
+    flex-direction: column;
+  }
+
+  .join-cta__actions .btn {
+    width: 100%;
+  }
+}
