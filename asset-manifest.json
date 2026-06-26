@@ -1,16 +1,28 @@
 {
   "files": {
-    "main.css": "/WebClient-Kelompok4/static/css/main.5c92b567.css",
-    "main.js": "/WebClient-Kelompok4/static/js/main.4adabdc2.js",
+    "main.css": "/WebClient-Kelompok4/static/css/main.d4e1ca39.css",
+    "main.js": "/WebClient-Kelompok4/static/js/main.b7b7070f.js",
     "static/js/453.18aaeb0b.chunk.js": "/WebClient-Kelompok4/static/js/453.18aaeb0b.chunk.js",
     "static/media/kevin.png": "/WebClient-Kelompok4/static/media/kevin.de8516977ca896cf8f40.png",
+    "static/media/about_hero.png": "/WebClient-Kelompok4/static/media/about_hero.3b49c59517cd0870927e.png",
+    "static/media/identity.png": "/WebClient-Kelompok4/static/media/identity.c0cd98af9deaafea2140.png",
+    "static/media/cloud_framework.png": "/WebClient-Kelompok4/static/media/cloud_framework.b9cf76dcc2887a522af1.png",
+    "static/media/fadhli.png": "/WebClient-Kelompok4/static/media/fadhli.5c894c1b393a13dfd4eb.png",
+    "static/media/azhar.png": "/WebClient-Kelompok4/static/media/azhar.174050c176c3ace21f2f.png",
+    "static/media/dimas.png": "/WebClient-Kelompok4/static/media/dimas.99c7f5f1f643adb4131a.png",
+    "static/media/awaluddin.png": "/WebClient-Kelompok4/static/media/awaluddin.4c93e20accb46fbc0f26.png",
+    "static/media/process_automation.png": "/WebClient-Kelompok4/static/media/process_automation.202de963832a9402d27e.png",
+    "static/media/system_arch.png": "/WebClient-Kelompok4/static/media/system_arch.6849c937b9f88c30cbf3.png",
+    "static/media/legacy_modernization.png": "/WebClient-Kelompok4/static/media/legacy_modernization.eda4769a795d2313686f.png",
+    "static/media/map.png": "/WebClient-Kelompok4/static/media/map.6a2519c1bfdf74955b82.png",
+    "static/media/security_protocols.png": "/WebClient-Kelompok4/static/media/security_protocols.87efd36856d608556fa6.png",
     "index.html": "/WebClient-Kelompok4/index.html",
-    "main.5c92b567.css.map": "/WebClient-Kelompok4/static/css/main.5c92b567.css.map",
-    "main.4adabdc2.js.map": "/WebClient-Kelompok4/static/js/main.4adabdc2.js.map",
+    "main.d4e1ca39.css.map": "/WebClient-Kelompok4/static/css/main.d4e1ca39.css.map",
+    "main.b7b7070f.js.map": "/WebClient-Kelompok4/static/js/main.b7b7070f.js.map",
     "453.18aaeb0b.chunk.js.map": "/WebClient-Kelompok4/static/js/453.18aaeb0b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5c92b567.css",
-    "static/js/main.4adabdc2.js"
+    "static/css/main.d4e1ca39.css",
+    "static/js/main.b7b7070f.js"
   ]
 }
