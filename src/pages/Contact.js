@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import mapImg from '../map.png';
+import contactHeroImg from '../contact_hero.png';
 
 
 function Contact() {
@@ -19,13 +20,19 @@ function Contact() {
   return (
     <main>
       <section className="contact-hero">
-        <div className="container">
-          <span className="label-tag">CONNECT WITH US</span>
-          <h1>Get in Touch</h1>
-          <p>
-            Our architectural engineering team is ready to discuss your next project.
-            Reach out through the form below or find our office locations on the map.
-          </p>
+        <div className="container contact-hero__grid">
+          <div className="contact-hero__left">
+            <span className="label-tag">CONNECT WITH US</span>
+            <h1>Get in Touch</h1>
+            <div className="divider" />
+            <p>
+              Our architectural engineering team is ready to discuss your next project.
+              Reach out through the form below or find our office locations on the map.
+            </p>
+          </div>
+          <div className="contact-hero__right">
+            <img src={contactHeroImg} alt="Office blueprint layout" className="contact-hero__image" />
+          </div>
         </div>
       </section>
 

@@ -4,13 +4,14 @@ import cloudFrameworkImg from '../cloud_framework.png';
 import securityProtocolsImg from '../security_protocols.png';
 import processAutomationImg from '../process_automation.png';
 import identityImg from '../identity.png';
+import heroArchitectureImg from '../hero_architecture.png';
 
 
 function Home() {
   return (
     <main>
       <section className="hero">
-        <div className="hero__bg-text">ARCH</div>
+        <img src={heroArchitectureImg} alt="" className="hero__bg-image" />
         <div className="container hero__content">
           <h1 className="hero__title">
             Architectural<br />

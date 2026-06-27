@@ -4,6 +4,11 @@ import cloudFrameworkImg from '../cloud_framework.png';
 import processAutomationImg from '../process_automation.png';
 import securityProtocolsImg from '../security_protocols.png';
 import legacyModernizationImg from '../legacy_modernization.png';
+import servicesHeroImg from '../services_hero.png';
+
+
+
+
 
 
 function Services() {
@@ -60,13 +65,19 @@ function Services() {
   return (
     <main>
       <section className="page-header">
-        <div className="container">
-          <span className="label-tag">Capabilities</span>
-          <h1>SYSTEMIC SOLUTIONS FOR MODERN ARCHITECTURES</h1>
-          <p>
-            We provide end-to-end technical frameworks designed for scalability,
-            performance, and industrial-grade reliability.
-          </p>
+        <div className="container page-header__grid">
+          <div className="page-header__left">
+            <span className="label-tag">Capabilities</span>
+            <h1>SYSTEMIC SOLUTIONS FOR MODERN ARCHITECTURES</h1>
+            <div className="divider" />
+            <p>
+              We provide end-to-end technical frameworks designed for scalability,
+              performance, and industrial-grade reliability.
+            </p>
+          </div>
+          <div className="page-header__right">
+            <img src={servicesHeroImg} alt="Systemic Solutions" className="page-header__image" />
+          </div>
         </div>
       </section>
 

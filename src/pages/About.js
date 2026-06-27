@@ -15,6 +15,7 @@ function About() {
           <div className="about-hero__left">
             <span className="label-tag">COMPANY PROFILE</span>
             <h1>Engineering the future of architectural systems.</h1>
+            <div className="divider" />
             <p>
               Founded on the principles of precision and structural integrity, ARCHI-TECH provides
               the framework for modern digital and physical infrastructures.
