@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARCHI-TECH - Presentasi UAS Web Client Development</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Design Tokens / Variables */
+    :root {
+      --color-bg: #0b0f19;
+      --color-card-bg: rgba(17, 24, 39, 0.7);
+      --color-card-border: rgba(255, 255, 255, 0.08);
+      --color-primary: #3b82f6;
+      --color-primary-glow: rgba(59, 130, 246, 0.15);
+      --color-text-main: #f3f4f6;
+      --color-text-muted: #9ca3af;
+      --color-accent: #10b981;
+      --font-sans: 'Outfit', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --transition-speed: 0.5s;
+    }
+
+    /* Global Resets */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-text-main);
+      font-family: var(--font-sans);
+      overflow: hidden;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    /* Animated Grid Background */
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 50px 50px;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Radial Glowing Orbs */
+    .glowing-orb {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--color-primary-glow) 0%, transparent 70%);
+      z-index: 2;
+      pointer-events: none;
+      filter: blur(40px);
+    }
+    .orb-1 { top: -100px; left: -100px; }
+    .orb-2 { bottom: -150px; right: -150px; }
+
+    /* Header styling */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 48px;
+      z-index: 10;
+      border-bottom: 1px solid var(--color-card-border);
+      backdrop-filter: blur(10px);
+      background: rgba(11, 15, 25, 0.6);
+    }
+
+    .header__logo {
+      font-weight: 800;
+      font-size: 24px;
+      letter-spacing: 2px;
+      color: var(--color-text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .header__logo span {
+      color: var(--color-primary);
+    }
+
+    .header__title {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--color-text-muted);
+      font-weight: 500;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 6px 12px;
+      border-radius: 4px;
+      border: 1px solid var(--color-card-border);
+    }
+
+    /* Slides container */
+    .slides-container {
+      flex: 1;
+      position: relative;
+      width: 100%;
+      height: calc(100vh - 160px);
+      z-index: 5;
+    }
+
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 40px 80px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(100px);
+      transition: opacity var(--transition-speed) ease, transform var(--transition-speed) ease, visibility var(--transition-speed);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      z-index: 6;
+    }
+
+    .slide.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(0);
+    }
+
+    .slide.previous {
+      transform: translateX(-100px);
+    }
+
+    /* General Slide Elements */
+    .slide-content {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-card-border);
+      border-radius: 16px;
+      padding: 40px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slide-content::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--color-primary);
+    }
+
+    .slide-title-wrapper {
+      margin-bottom: 24px;
+    }
+
+    .slide-tag {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--color-primary);
+      font-weight: 700;
+      margin-bottom: 6px;
+      display: inline-block;
+    }
+
+    .slide-title {
+      font-size: 38px;
+      font-weight: 700;
+      color: var(--color-text-main);
+      line-height: 1.2;
+    }
+
+    .slide-body {
+      font-size: 18px;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    /* Specific Slide layouts */
+    /* Slide 1: Cover */
+    .cover-layout {
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      display: flex;
+      width: 100%;
+    }
+
+    .cover-card {
+      max-width: 900px;
+      background: rgba(17, 24, 39, 0.85);
+      border: 1px solid var(--color-card-border);
+      border-radius: 24px;
+      padding: 60px 40px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      position: relative;
+      border-top: 3px solid var(--color-primary);
+    }
+
+    .cover-card h1 {
+      font-size: 52px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      letter-spacing: -1px;
+      background: linear-gradient(135deg, #ffffff 50%, #60a5fa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .cover-card h2 {
+      font-size: 20px;
+      color: var(--color-primary);
+      margin-bottom: 30px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .cover-meta {
+      display: flex;
+      justify-content: space-around;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 30px;
+      margin-top: 30px;
+      text-align: left;
+    }
+
+    .meta-item h4 {
+      font-size: 12px;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+
+    .meta-item p {
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .team-list-small {
+      list-style: none;
+      font-size: 14px;
+    }
+    
+    .team-list-small li {
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .team-list-small li::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: var(--color-primary);
+      border-radius: 50%;
+    }
+
+    /* Grid Layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+      width: 100%;
+    }
+
+    .info-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      padding: 24px;
+      height: 100%;
+    }
+
+    .info-card h3 {
+      font-size: 20px;
+      color: var(--color-text-main);
+      margin-bottom: 12px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .info-card h3 svg {
+      width: 20px;
+      height: 20px;
+      color: var(--color-primary);
+    }
+
+    .info-card p {
+      font-size: 15px;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    /* Slide 3: Visual Comparison Split */
+    .comparison-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 10px;
+    }
+
+    .comp-box {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--color-card-border);
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .comp-header {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 12px 20px;
+      font-weight: 600;
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--color-card-border);
+    }
+
+    .badge-uts {
+      background: #f59e0b;
+      color: #000;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .badge-uas {
+      background: #10b981;
+      color: #fff;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .comp-body {
+      padding: 20px;
+      min-height: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .comp-features {
+      list-style: none;
+      margin-top: 12px;
+    }
+
+    .comp-features li {
+      font-size: 14px;
+      margin-bottom: 8px;
+      color: var(--color-text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .comp-features li::before {
+      content: '✓';
+      color: var(--color-primary);
+      font-weight: bold;
+    }
+
+    /* Slide 4: Folder tree styling */
+    .folder-tree {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid var(--color-card-border);
+      color: #60a5fa;
+      line-height: 1.5;
+    }
+
+    .folder-tree span.comment {
+      color: #6b7280;
+    }
+    
+    .folder-tree span.file {
+      color: #e5e7eb;
+    }
+
+    /* Slide 5 & 6: Code snippets styling */
+    .code-snippet {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      background: #0d1117;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid var(--color-card-border);
+      overflow-x: auto;
+      color: #c9d1d9;
+      line-height: 1.5;
+      width: 100%;
+    }
+
+    .code-keyword { color: #ff7b72; }
+    .code-def { color: #d2a8ff; }
+    .code-string { color: #a5d6ff; }
+    .code-comment { color: #8b949e; }
+    .code-built { color: #ffa657; }
+
+    /* Team grid styling */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin-top: 15px;
+      width: 100%;
+    }
+
+    .team-member-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--color-card-border);
+      border-radius: 12px;
+      padding: 20px 10px;
+      text-align: center;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .team-member-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--color-primary);
+      background: rgba(59, 130, 246, 0.05);
+    }
+
+    .avatar-placeholder {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--color-primary) 0%, #1d4ed8 100%);
+      margin: 0 auto 12px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #fff;
+      font-size: 20px;
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+    }
+
+    .member-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--color-text-main);
+      margin-bottom: 4px;
+    }
+
+    .member-role {
+      font-size: 12px;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Footer / Controls */
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 48px;
+      z-index: 10;
+      border-top: 1px solid var(--color-card-border);
+      background: rgba(11, 15, 25, 0.6);
+      backdrop-filter: blur(10px);
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn-nav {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--color-card-border);
+      color: var(--color-text-main);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .btn-nav:hover {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+    }
+
+    .btn-nav:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .slide-number {
+      font-size: 14px;
+      color: var(--color-text-muted);
+      font-family: var(--font-mono);
+    }
+
+    /* Progress bar */
+    .progress-bar-container {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.05);
+      z-index: 15;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 10%;
+      background: var(--color-primary);
+      box-shadow: 0 0 8px var(--color-primary);
+      transition: width 0.3s ease;
+    }
+
+    /* Presenter Notes Overlay */
+    .notes-toggle {
+      background: transparent;
+      border: none;
+      color: var(--color-text-muted);
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.3s ease;
+    }
+
+    .notes-toggle:hover {
+      color: var(--color-text-main);
+    }
+
+    .notes-panel {
+      position: fixed;
+      bottom: 96px;
+      left: 48px;
+      right: 48px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
+      z-index: 100;
+      transform: translateY(150%);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      backdrop-filter: blur(20px);
+    }
+
+    .notes-panel.open {
+      transform: translateY(0);
+    }
+
+    .notes-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 8px;
+    }
+
+    .notes-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .notes-body {
+      font-size: 14px;
+      color: #d1d5db;
+      line-height: 1.6;
+    }
+
+    .keyboard-guide {
+      font-size: 12px;
+      color: var(--color-text-muted);
+      background: rgba(255, 255, 255, 0.03);
+      padding: 4px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--color-card-border);
+    }
+
+    /* Animations and UI helpers */
+    .pill {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      background: rgba(59, 130, 246, 0.1);
+      color: var(--color-primary);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Orbs -->
+  <div class="glowing-orb orb-1"></div>
+  <div class="glowing-orb orb-2"></div>
+
+  <!-- Header Section -->
+  <header>
+    <div class="header__logo">
+      ARCHI-<span>TECH</span>
+    </div>
+    <div class="header__title">UAS SHOWCASE • KELOMPOK 4</div>
+    <div class="keyboard-guide">Gunakan Tombol Arah ➔ / ⬅ untuk navigasi slide</div>
+  </header>
+
+  <!-- Main Slides Frame -->
+  <div class="slides-container">
+
+    <!-- Slide 1: Cover -->
+    <section class="slide active" id="slide-1" data-notes="Buka presentasi dengan menyapa dosen penguji (Bapak Reza Fahmi Alviandy) dan audiens. Perkenalkan anggota Kelompok 4 dan sebutkan peran masing-masing: Kevin sebagai Chief Architect, Fadhli sebagai Structural Lead, Azhar di Operations, Awaluddin di Creative, dan Dimas memimpin Engineering. Jelaskan bahwa proyek ARCHI-TECH adalah implementasi nyata dari blueprint UTS.">
+      <div class="cover-layout">
+        <div class="cover-card">
+          <h2>UAS Web Client Development</h2>
+          <h1>ARCHI-TECH</h1>
+          <p style="color: var(--color-text-muted); font-size: 18px; margin-bottom: 24px;">Realisasi Blueprint UTS ke Aplikasi Web Live & Responsif</p>
+          <span class="pill">Tipe: Take Home Project Showcase</span>
+          
+          <div class="cover-meta">
+            <div class="meta-item">
+              <h4>Dosen Pengampu</h4>
+              <p>Reza Fahmi Alviandy</p>
+              <h4 style="margin-top: 15px;">Program Studi</h4>
+              <p>Ilmu Komputer</p>
+            </div>
+            <div class="meta-item">
+              <h4>Anggota Kelompok 4</h4>
+              <ul class="team-list-small">
+                <li>Kevin Aprianto (25120300004)</li>
+                <li>Muhammad Fadhli Akbar (25120300025)</li>
+                <li>Muhammad Azhar Khaira (25120300010)</li>
+                <li>Muh. Awaluddin (25120300003)</li>
+                <li>Markus Dimas Bayunta (25120300011)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 2: Latar Belakang -->
+    <section class="slide" id="slide-2" data-notes="Jelaskan core bisnis dari ARCHI-TECH. Perusahaan ini bergerak di bidang rekayasa sistem terdistribusi, cloud computing, otomatisasi alur kerja, dan enkripsi zero-trust. Halaman web yang dibangun terdiri atas 4 halaman utama: Home, About, Services, dan Contact. Semuanya disatukan di bawah arsitektur React yang solid.">
+      <div class="slide-content">
+        <div class="slide-title-wrapper">
+          <span class="slide-tag">PROFIL PERUSAHAAN</span>
+          <h2 class="slide-title">Latar Belakang & Deskripsi Proyek</h2>
+        </div>
+        <div class="grid-2">
+          <div class="slide-body">
+            <p style="margin-bottom: 16px;"><strong>ARCHI-TECH Global Systems</strong> adalah platform profil perusahaan (*company profile*) rekayasa infrastruktur digital, otomatisasi sistem, dan cloud terdistribusi.</p>
+            <p>Tujuan utama pengerjaan UAS ini adalah merealisasikan blueprint rancangan visual UTS menjadi program web utuh yang berjalan di server produksi (*Live Deployment*).</p>
+          </div>
+          <div class="grid-2" style="gap: 16px;">
+            <div class="info-card">
+              <h3>
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                Core Pillar
+              </h3>
+              <p>Meningkatkan keandalan sistem melalui modularitas arsitektur perangkat lunak yang andal.</p>
+            </div>
+            <div class="info-card">
+              <h3>
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                Zero Trust
+              </h3>
+              <p>Setiap protokol komunikasi dan akses diatur dengan enkripsi ujung-ke-ujung.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 3: Komparasi Visual -->
+    <section class="slide" id="slide-3" data-notes="Tunjukkan komparasi visual ini dengan percaya diri. Di sisi kiri adalah rancangan Figma UTS, dan di kanan adalah hasil akhir UAS. Sampaikan bahwa layout grid CSS, skema warna gelap minimalis, tipografi sans-serif modern, serta rasio aspek gambar diimplementasikan 100% konsisten. Jika ada sedikit perbedaan, itu adalah penyesuaian teknis untuk performa pemuatan gambar di vercel.">
+      <div class="slide-content">
+        <div class="slide-title-wrapper">
+          <span class="slide-tag">KONSISTENSI UI/UX</span>
+          <h2 class="slide-title">Komparasi Visual (Desain UTS vs UAS)</h2>
+        </div>
+        <div class="comparison-container">
+          <div class="comp-box">
+            <div class="comp-header">
+              <span>Blueprint UTS (Figma)</span>
+              <span class="badge-uts">DESAIN</span>
+            </div>
+            <div class="comp-body">
+              <p style="font-size: 15px; color: var(--color-text-muted);">Sketsa kasar tata letak halaman yang telah disepakati pada saat UTS:</p>
+              <ul class="comp-features">
+                <li>Grid 4 Kolom di bagian Featured Services.</li>
+                <li>Hero Section gelap dengan teks kontras tinggi.</li>
+                <li>Navbar statis di bagian atas layar desktop.</li>
+                <li>Desain statis form kontak dan peta.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="comp-box">
+            <div class="comp-header">
+              <span>Hasil Realisasi UAS (Web Live)</span>
+              <span class="badge-uas">IMPLEMENTASI</span>
+            </div>
+            <div class="comp-body">
+              <p style="font-size: 15px; color: var(--color-text-muted);">Implementasi kode nyata yang berjalan responsif di perangkat komputer/mobile:</p>
+              <ul class="comp-features">
+                <li>Grid responsif Bootstrap 5 + CSS Flexbox.</li>
+                <li>Hero Image dinamis dengan performa optimal di Vercel.</li>
+                <li>Navbar dinamis dengan menu toggle & click outside handler.</li>
+                <li>Form interaktif dengan manajemen state terpusat.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 4: Arsitektur React -->
+    <section class="slide" id="slide-4" data-notes="Jelaskan struktur kode program. Kami memisahkan halaman (Home, About, Services, Contact, NotFound) ke direktori pages, dan komponen reusable (Navbar, Footer) ke direktori components. Pengaturan rute dilakukan di App.js menggunakan HashRouter. Desain styling juga kami kelompokkan ke dalam folder styles dengan variables.css yang memuat variabel warna dan spasi global. Ini menjaga kode kami tetap bersih dan teratur.">
+      <div class="slide-content">
+        <div class="slide-title-wrapper">
+          <span class="slide-tag">STRUKTUR KODE</span>
+          <h2 class="slide-title">Arsitektur React.js & Komponen Modular</h2>
+        </div>
+        <div class="grid-2">
+          <div>
+            <p style="font-size: 16px; margin-bottom: 20px; color: var(--color-text-muted);">Aplikasi web dipecah menjadi komponen-komponen fungsional terpisah untuk efisiensi kolaborasi tim dan reusabilitas elemen:</p>
+            <div class="info-card" style="margin-bottom: 12px;">
+              <h3 style="font-size: 16px;">HashRouter Navigation</h3>
+              <p style="font-size: 13.5px;">Memungkinkan routing client-side yang mulus tanpa muat ulang halaman penuh di hosting statis.</p>
+            </div>
+            <div class="info-card">
+              <h3>Modular CSS</h3>
+              <p style="font-size: 13.5px;">Setiap halaman memiliki file stylesheet tersendiri agar mencegah tumpang tindih gaya elemen (styling isolation).</p>
+            </div>
+          </div>
+          <div class="folder-tree">
+            src/<br>
+            ├── components/ <span class="comment"># Reusable Global Components</span><br>
+            │   ├── <span class="file">Navbar.js</span><br>
+            │   └── <span class="file">Footer.js</span><br>
+            ├── pages/ <span class="comment"># Main Page Views</span><br>
+            │   ├── <span class="file">Home.js</span>, <span class="file">About.js</span><br>
+            │   ├── <span class="file">Services.js</span>, <span class="file">Contact.js</span><br>
+            │   └── <span class="file">NotFound.js</span><br>
+            ├── styles/ <span class="comment"># Stylesheets per View</span><br>
+            │   ├── <span class="file">variables.css</span> <span class="comment"># Design Tokens</span><br>
+            │   └── <span class="file">base.css</span>, <span class="file">home.css</span>, ...<br>
+            └── <span class="file">App.js</span> <span class="comment"># Central Router</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 5: useState -->
+    <section class="slide" id="slide-5" data-notes="Ini adalah bagian interaktivitas program menggunakan hook useState. Ada dua area utama: Pertama, toggle hamburger menu di Navbar.js untuk merespons perangkat mobile. Kedua, input form di Contact.js, di mana state objek tunggal mengelola nama lengkap, email, subjek, dan pesan secara dinamis melalui handler handleChange tunggal.">
+      <div class="slide-content">
+        <div class="slide-title-wrapper">
+          <span class="slide-tag">STATE MANAGEMENT</span>
+          <h2 class="slide-title">Logika State & Interaksi (useState)</h2>
+        </div>
+        <div class="grid-2">
+          <div class="code-snippet">
+            <span class="code-comment">// 1. Navbar Mobile Toggle (Navbar.js)</span><br>
+            <span class="code-keyword">const</span> [menuOpen, setMenuOpen] = <span class="code-def">useState</span>(<span class="code-keyword">false</span>);<br>
+            <br>
+            <span class="code-comment">// 2. Contact Form State (Contact.js)</span><br>
+            <span class="code-keyword">const</span> [formData, setFormData] = <span class="code-def">useState</span>({<br>
+            &nbsp;&nbsp;fullName: <span class="code-string">''</span>, email: <span class="code-string">''</span>, subject: <span class="code-string">''</span>, message: <span class="code-string">''</span><br>
+            });<br>
+            <br>
+            <span class="code-keyword">const</span> <span class="code-def">handleChange</span> = (event) => {<br>
+            &nbsp;&nbsp;<span class="code-keyword">const</span> { name, value } = event.target;<br>
+            &nbsp;&nbsp;setFormData((current) => ({<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;...current, [name]: value<br>
+            &nbsp;&nbsp;}));<br>
+            };
+          </div>
+          <div>
+            <div class="info-card" style="margin-bottom: 12px;">
+              <h3>Controlled Components</h3>
+              <p>Seluruh kolom input form dikendalikan secara langsung oleh state React. Hal ini memastikan konsistensi data sebelum dilakukan pengiriman/submit.</p>
+            </div>
+            <div class="info-card">
+              <h3>Navbar Click Outside Detection</h3>
+              <p>Menambahkan interaktivitas premium berupa pendeteksian klik di luar menu hamburger untuk menutup navigasi secara otomatis menggunakan kombinasi useRef dan event listener.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 6: useEffect & API -->
+    <section class="slide" id="slide-6" data-notes="Sesuai dengan ketentuan nilai UAS, program kami memanggil data dinamis dari Public API eksternal menggunakan hook useEffect saat komponen dipasang (mount). Kami menampilkan quotes inspiratif seputar rekayasa sistem secara dinamis di halaman web. Data diambil, divalidasi status pemuatannya (loading), kemudian dirender ke layar tanpa memblokir pemuatan komponen utama.">
+      <div class="slide-content">
+        <div class="slide-title-wrapper">
+          <span class="slide-tag">EXTERNAL INTEGRATION</span>
+          <h2 class="slide-title">Integrasi API Dinamis (useEffect)</h2>
+        </div>
+        <div class="grid-2">
+          <div>
+            <p style="font-size: 16px; margin-bottom: 20px; color: var(--color-text-muted);">Mengambil data dinamis dari API publik eksternal menggunakan hook efek samping (useEffect) untuk diintegrasikan ke halaman secara asinkron:</p>
+            <div class="info-card" style="margin-bottom: 12px;">
+              <h3>Asynchronous Fetching</h3>
+              <p>Memanfaatkan native API browser `fetch` dengan penanganan error (`catch`) dan state transisi loading demi menjaga pengalaman pengguna tetap mulus.</p>
+            </div>
+            <div class="info-card">
+              <h3>Data Source</h3>
+              <p>Mengambil quote acak dari platform public API eksternal yang relevan dengan sains/teknologi.</p>
+            </div>
+          </div>
+          <div class="code-snippet">
+            <span class="code-def">useEffect</span>(() => {<br>
+            &nbsp;&nbsp;<span class="code-def">fetch</span>(<span class="code-string">'https://dummyjson.com/quotes/random'</span>)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;.<span class="code-def">then</span>(res => res.<span class="code-def">json</span>())<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;.<span class="code-def">then</span>(data => {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setQuote(data);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setLoading(<span class="code-keyword">false</span>);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;})<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;.<span class="code-def">catch</span>(err => {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.<span class="code-def">error</span>(err);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setLoading(<span class="code-keyword">false</span>);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;});<br>
+            }, []);
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 7: Responsivitas CSS -->
+    <section class="slide" id="slide-7" data-notes="Jelaskan bahwa proyek ini responsif penuh. Layout kami teruji di desktop, tablet, dan smartphone menggunakan CSS Flexbox, Grid, dan media queries. Penggunaan Bootstrap 5 dipadukan dengan rapi dengan variabel warna CSS kustom kami. Ketika dibuka di layar mobile, menu navigasi akan otomatis terlipat ke dalam hamburger menu.">
+      <div class="slide-content">
+        <div class="slide-title-wrapper">
+          <span class="slide-tag">LAYOUT SYSTEM</span>
+          <h2 class="slide-title">Responsivitas & Framework CSS</h2>
+        </div>
+        <div class="grid-3">
+          <div class="info-card">
+            <h3>Desktop View (1200px+)</h3>
+            <p>Layout kolom penuh, grid kartu berdampingan, navigasi bar horizontal, serta rendering media resolusi tinggi.</p>
+          </div>
+          <div class="info-card">
+            <h3>Tablet View (768px - 1024px)</h3>
+            <p>Penyusutan kolom grid secara proporsional. Layout bertransisi dari 4 kolom menjadi 2 kolom demi kenyamanan keterbacaan.</p>
+          </div>
+          <div class="info-card">
+            <h3>Mobile View (320px - 480px)</h3>
+            <p>Layout vertikal penuh tunggal. Menu navigasi atas disembunyikan di bawah hamburger menu interaktif.</p>
+          </div>
+        </div>
+        <div class="info-card" style="margin-top: 20px;">
+          <h3 style="font-size: 16px;">Penerapan Framework & Custom CSS</h3>
+          <p style="font-size: 14px;">Mengombinasikan sistem grid Bootstrap 5 yang responsif dengan fleksibilitas Vanilla CSS kustom (menggunakan Custom Properties di `variables.css`) untuk menjamin konsistensi visual di seluruh modul visual.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 8: Deployment Vercel -->
+    <section class="slide" id="slide-8" data-notes="Website ARCHI-TECH telah dideploy secara live di Vercel, memenuhi persyaratan UAS. Vercel secara otomatis mendeteksi repository GitHub kami dan memicu build produksi setiap kali ada push baru ke branch main. Ini menjamin proses CI/CD berjalan sempurna. Alamat URL langsung aktif dan responsif, terbebas dari localhost saat pengujian.">
+      <div class="slide-content">
+        <div class="slide-title-wrapper">
+          <span class="slide-tag">LIVE PRODUCTION</span>
+          <h2 class="slide-title">Deployment & Kelayakan Program (Vercel)</h2>
+        </div>
+        <div class="grid-2">
+          <div>
+            <div class="info-card" style="margin-bottom: 12px;">
+              <h3>Vercel Cloud Integration</h3>
+              <p>Website dideploy secara penuh melalui platform Vercel yang terhubung langsung ke repositori GitHub organisasi kelompok.</p>
+            </div>
+            <div class="info-card">
+              <h3>Optimasi Build Produksi</h3>
+              <p>Aset gambar dan berkas JavaScript dikompresi selama fase build React untuk memastikan performa pemuatan yang cepat dan optimal.</p>
+            </div>
+          </div>
+          <div class="info-card" style="display: flex; flex-direction: column; justify-content: center; align-items: center; border-left: 4px solid var(--color-accent);">
+            <div style="font-size: 16px; font-weight: 700; color: var(--color-accent); margin-bottom: 8px;">LIVE STATUS: ACTIVE</div>
+            <p style="text-align: center; font-size: 14px; color: var(--color-text-muted); margin-bottom: 16px;">Silakan akses situs web demonstrasi live kelompok kami melalui peramban luar localhost:</p>
+            <a href="https://archi-tech.vercel.app" target="_blank" style="background: var(--color-primary); color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 14px; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);">Kunjungi Demo Live</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 9: Alur Demo -->
+    <section class="slide" id="slide-9" data-notes="Di sesi demo langsung selama 10 menit ini, kami akan membagi waktu: 3 menit awal untuk pemaparan konsep, 4 menit uji coba fungsionalitas web live (seperti form submission dan hamburger menu), dan 3 menit komparasi kemiripan layout dengan desain Figma awal. Kemudian kami siap melangkah ke sesi pembedahan kode (Code Deep-Dive) bersama dosen.">
+      <div class="slide-content">
+        <div class="slide-title-wrapper">
+          <span class="slide-tag">EVALUATION PREPARATION</span>
+          <h2 class="slide-title">Mekanisme Evaluasi & Demonstrasi</h2>
+        </div>
+        <div class="grid-3">
+          <div class="info-card">
+            <h3 style="font-size: 16px;">1. Pitch & Live Demo (10m)</h3>
+            <p style="font-size: 13.5px;">Presentasi pembuka kelayakan produk, kecocokan tata letak desain awal, dan navigasi seluruh halaman live di peramban.</p>
+          </div>
+          <div class="info-card">
+            <h3 style="font-size: 16px;">2. Code Deep-Dive (10m)</h3>
+            <p style="font-size: 13.5px;">Sesi pembedahan baris kode di VS Code untuk menjelaskan logika useState, useEffect, penanganan aset, dan struktur routing.</p>
+          </div>
+          <div class="info-card">
+            <h3 style="font-size: 16px;">3. QA & Bug Hunting (10m)</h3>
+            <p style="font-size: 13.5px;">Sesi tanya jawab bersama dosen pengampu mengenai responsivitas perangkat dan penanganan bug antarmuka.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 10: Kesimpulan -->
+    <section class="slide" id="slide-10" data-notes="Sebagai penutup, kami menekankan orisinalitas pengerjaan kode kami. Aplikasi ini dibangun secara bersih, rapi, dan terstruktur tanpa menggunakan template siap pakai dari internet. Hal ini menjamin nilai penuh pada aspek kerapian kode dan kesiapan bedah kode. Terima kasih atas perhatiannya, kami siap menerima pertanyaan atau masukan.">
+      <div class="slide-content">
+        <div class="slide-title-wrapper">
+          <span class="slide-tag">TEAM COMMITMENT</span>
+          <h2 class="slide-title">Kesimpulan & Orisinalitas Proyek</h2>
+        </div>
+        <div class="grid-2">
+          <div>
+            <p style="font-size: 16px; line-height: 1.7; color: var(--color-text-muted); margin-bottom: 20px;">
+              Proyek ARCHI-TECH merepresentasikan komitmen Kelompok 4 dalam menyusun aplikasi web berstandar industri dengan kerapian penulisan kode, pemisahan berkas yang teratur, dan logika interaksi React yang optimal.
+            </p>
+            <span class="pill" style="background: rgba(16, 185, 129, 0.1); color: var(--color-accent); border-color: rgba(16, 185, 129, 0.2);">100% Original Team Work</span>
+          </div>
+          <div>
+            <h3 style="font-size: 16px; margin-bottom: 12px; color: var(--color-text-main);">Tim Pengembang Kelompok 4</h3>
+            <div class="team-grid">
+              <div class="team-member-card">
+                <div class="avatar-placeholder">KA</div>
+                <div class="member-name">Kevin</div>
+                <div class="member-role">Architect</div>
+              </div>
+              <div class="team-member-card">
+                <div class="avatar-placeholder">FA</div>
+                <div class="member-name">Fadhli</div>
+                <div class="member-role">Lead</div>
+              </div>
+              <div class="team-member-card">
+                <div class="avatar-placeholder">AK</div>
+                <div class="member-name">Azhar</div>
+                <div class="member-role">Ops</div>
+              </div>
+              <div class="team-member-card">
+                <div class="avatar-placeholder">AW</div>
+                <div class="member-name">Awal</div>
+                <div class="member-role">Creative</div>
+              </div>
+              <div class="team-member-card">
+                <div class="avatar-placeholder">DB</div>
+                <div class="member-name">Dimas</div>
+                <div class="member-role">Engineer</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Presenter Notes Panel -->
+  <div class="notes-panel" id="notes-panel">
+    <div class="notes-header">
+      <span class="notes-title">Catatan Pembicara (Presenter Notes)</span>
+      <button class="notes-toggle" onclick="toggleNotes()">✕ Tutup</button>
+    </div>
+    <div class="notes-body" id="notes-content">
+      Catatan pembicara untuk slide ini akan muncul di sini.
+    </div>
+  </div>
+
+  <!-- Footer Navigation controls -->
+  <footer>
+    <div class="slide-number" id="slide-counter">Slide 1 / 10</div>
+    <div class="controls">
+      <button class="notes-toggle" onclick="toggleNotes()">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16" style="vertical-align: middle;"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+        Presenter Notes (N)
+      </button>
+      <button class="btn-nav" id="btn-prev" onclick="prevSlide()" disabled>
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>
+      </button>
+      <button class="btn-nav" id="btn-next" onclick="nextSlide()">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+      </button>
+    </div>
+  </footer>
+
+  <!-- Progress bar container -->
+  <div class="progress-bar-container">
+    <div class="progress-bar" id="progress-indicator"></div>
+  </div>
+
+  <!-- Slide logic Javascript -->
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 10;
+
+    const slides = document.querySelectorAll('.slide');
+    const btnPrev = document.getElementById('btn-prev');
+    const btnNext = document.getElementById('btn-next');
+    const slideCounter = document.getElementById('slide-counter');
+    const progressIndicator = document.getElementById('progress-indicator');
+    const notesPanel = document.getElementById('notes-panel');
+    const notesContent = document.getElementById('notes-content');
+
+    function updateSlide() {
+      // Toggle active states
+      slides.forEach((slide, idx) => {
+        slide.classList.remove('active', 'previous');
+        if (idx + 1 === currentSlide) {
+          slide.classList.add('active');
+          // Update speaker notes
+          const notes = slide.getAttribute('data-notes') || "Tidak ada catatan untuk slide ini.";
+          notesContent.textContent = notes;
+        } else if (idx + 1 < currentSlide) {
+          slide.classList.add('previous');
+        }
+      });
+
+      // Update control buttons state
+      btnPrev.disabled = currentSlide === 1;
+      btnNext.disabled = currentSlide === totalSlides;
+
+      // Update progress slide text and progress bar width
+      slideCounter.textContent = `Slide ${currentSlide} / ${totalSlides}`;
+      const progressPercent = (currentSlide / totalSlides) * 100;
+      progressIndicator.style.width = `${progressPercent}%`;
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) {
+        currentSlide++;
+        updateSlide();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) {
+        currentSlide--;
+        updateSlide();
+      }
+    }
+
+    function toggleNotes() {
+      notesPanel.classList.toggle('open');
+    }
+
+    // Keyboard navigation handlers
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+        e.preventDefault();
+        nextSlide();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault();
+        prevSlide();
+      } else if (e.key === 'n' || e.key === 'N') {
+        e.preventDefault();
+        toggleNotes();
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        currentSlide = 1;
+        updateSlide();
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        currentSlide = totalSlides;
+        updateSlide();
+      }
+    });
+
+    // Initialize speaker notes for the first slide on load
+    updateSlide();
+  </script>
+</body>
+</html>
