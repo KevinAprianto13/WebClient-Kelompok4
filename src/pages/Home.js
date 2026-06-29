@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import systemArchImg from '../system_arch.png';
 import cloudFrameworkImg from '../cloud_framework.png';
@@ -9,30 +8,6 @@ import heroArchitectureImg from '../hero_architecture.png';
 
 
 function Home() {
-  const [insight, setInsight] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetch('https://dummyjson.com/quotes/random')
-      .then((res) => {
-        if (!res.ok) throw new Error('Network response was not ok');
-        return res.json();
-      })
-      .then((data) => {
-        setInsight({ quote: data.quote, author: data.author });
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error('Error fetching insight:', err);
-        // Fallback quote
-        setInsight({
-          quote: "Simplicity is the ultimate sophistication.",
-          author: "Leonardo da Vinci"
-        });
-        setLoading(false);
-      });
-  }, []);
-
   return (
 
     <main>
@@ -203,28 +178,6 @@ function Home() {
           </div>
         </div>
       </section>
-      {/* Dynamic API Section: Daily Architectural Insight */}
-      <section className="section dynamic-insights" style={{ background: '#0b0f19', color: '#ffffff', borderTop: '1px solid rgba(255, 255, 255, 0.08)', borderBottom: '1px solid rgba(255, 255, 255, 0.08)', paddingBlock: '60px' }}>
-        <div className="container" style={{ textAlign: 'center', maxWidth: '800px', marginInline: 'auto' }}>
-          <span className="label-tag" style={{ background: 'rgba(59, 130, 246, 0.1)', color: '#3b82f6', border: '1px solid rgba(59, 130, 246, 0.2)', padding: '4px 10px', borderRadius: '20px', fontSize: '11px', fontWeight: '600', letterSpacing: '1px', textTransform: 'uppercase', display: 'inline-block', marginBottom: '16px' }}>
-            Daily System Insight (Public API)
-          </span>
-          <h2 style={{ fontSize: '32px', fontWeight: '700', marginBottom: '24px' }}>Inspirational Quote of the Day</h2>
-          {loading ? (
-            <p style={{ color: '#9ca3af', fontStyle: 'italic' }}>Loading dynamic insights from external cloud services...</p>
-          ) : (
-            <div style={{ background: 'rgba(255, 255, 255, 0.02)', border: '1px solid rgba(255, 255, 255, 0.05)', borderRadius: '12px', padding: '30px 40px', backdropFilter: 'blur(10px)', boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)' }}>
-              <blockquote style={{ fontSize: '18px', color: '#f3f4f6', fontStyle: 'italic', lineHeight: '1.6', marginBottom: '16px', position: 'relative' }}>
-                "{insight.quote}"
-              </blockquote>
-              <cite style={{ fontSize: '14px', color: '#3b82f6', fontWeight: '600', fontStyle: 'normal' }}>
-                — {insight.author}
-              </cite>
-            </div>
-          )}
-        </div>
-      </section>
-
       <section className="cta-banner">
         <div className="container cta-banner__content">
           <h2>Ready to construct your vision?</h2>

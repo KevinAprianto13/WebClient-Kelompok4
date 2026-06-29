@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import kevinPhoto from '../kevin.png';
 import fadhliPhoto from '../fadhli.png';
@@ -8,6 +9,30 @@ import aboutHeroImg from '../about_hero.png';
 
 
 function About() {
+  const [insight, setInsight] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch('https://dummyjson.com/quotes/random')
+      .then((res) => {
+        if (!res.ok) throw new Error('Network response was not ok');
+        return res.json();
+      })
+      .then((data) => {
+        setInsight({ quote: data.quote, author: data.author });
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error('Error fetching insight:', err);
+        // Fallback quote
+        setInsight({
+          quote: "Simplicity is the ultimate sophistication.",
+          author: "Leonardo da Vinci"
+        });
+        setLoading(false);
+      });
+  }, []);
+
   return (
     <main>
       <section className="about-hero">
@@ -20,6 +45,35 @@ function About() {
               Founded on the principles of precision and structural integrity, ARCHI-TECH provides
               the framework for modern digital and physical infrastructures.
             </p>
+
+            {/* Dynamic API Quote Box */}
+            {!loading && insight && (
+              <blockquote style={{
+                fontFamily: 'var(--font-body)',
+                fontSize: '0.95rem',
+                lineHeight: '1.5',
+                color: 'var(--color-gray-600)',
+                fontStyle: 'italic',
+                borderLeft: '2px solid var(--color-black)',
+                paddingLeft: 'var(--space-4)',
+                marginTop: 'var(--space-6)',
+                marginBottom: 'var(--space-2)'
+              }}>
+                "{insight.quote}"
+                <cite style={{
+                  display: 'block',
+                  fontSize: '0.8rem',
+                  color: 'var(--color-gray-400)',
+                  fontWeight: '600',
+                  fontStyle: 'normal',
+                  marginTop: 'var(--space-2)',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.05em'
+                }}>
+                  — {insight.author}
+                </cite>
+              </blockquote>
+            )}
           </div>
           <div className="about-hero__right">
             <img src={aboutHeroImg} alt="Engineering the future" className="about-hero__image" />
