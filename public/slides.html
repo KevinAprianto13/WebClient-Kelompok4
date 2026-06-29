@@ -150,6 +150,21 @@
       transition: var(--transition-normal);
     }
 
+    /* Custom thin scrollbar for sidebar */
+    .sidebar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .sidebar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .sidebar::-webkit-scrollbar-thumb {
+      background: rgba(59, 130, 246, 0.2);
+      border-radius: 4px;
+    }
+    .sidebar::-webkit-scrollbar-thumb:hover {
+      background: var(--color-accent);
+    }
+
     .sidebar-title {
       font-family: var(--font-display);
       font-size: 13px;
