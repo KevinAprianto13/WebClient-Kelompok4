@@ -1212,25 +1212,10 @@
 
   </div>
 
-  <!-- Speaker Notes overlay drawer -->
-  <div class="notes-drawer" id="notesDrawer">
-    <div class="notes-hdr">
-      <span class="notes-lbl">Catatan Pembicara (Presenter Notes)</span>
-      <button class="btn-notes" onclick="toggleNotes()" style="padding: 0;">✕ Tutup</button>
-    </div>
-    <div class="notes-txt" id="notesText">
-      Catatan pembicara akan ditampilkan di sini.
-    </div>
-  </div>
-
   <!-- Footer -->
   <footer class="app-footer">
     <div class="footer-left">
       <div class="slide-counter" id="slideCounter">Slide 1 / 10</div>
-      <button class="btn-notes" onclick="toggleNotes()">
-        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16" style="vertical-align: middle;"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
-        Notes (N)
-      </button>
     </div>
     <div class="nav-controls">
       <button class="btn-circle" id="btnPrev" onclick="prevSlide()" disabled>
@@ -1254,9 +1239,6 @@
     const btnNextEl = document.getElementById('btnNext');
     const slideCounterEl = document.getElementById('slideCounter');
     const progressLineEl = document.getElementById('progressLine');
-    const notesDrawerEl = document.getElementById('notesDrawer');
-    const notesTextEl = document.getElementById('notesText');
-
     // Automatically set the URL to window origin for live demo button
     document.getElementById('liveDemoBtn').href = window.location.origin + '/#/';
 
@@ -1266,9 +1248,6 @@
         slide.classList.remove('active');
         if (index + 1 === currentSlideIndex) {
           slide.classList.add('active');
-          // Update speaker notes content
-          const notesText = slide.getAttribute('data-notes') || "Tidak ada catatan untuk slide ini.";
-          notesTextEl.textContent = notesText;
         }
       });
 
@@ -1313,10 +1292,6 @@
       }
     }
 
-    function toggleNotes() {
-      notesDrawerEl.classList.toggle('open');
-    }
-
     // Keyboard controls
     document.addEventListener('keydown', (event) => {
       if (event.key === 'ArrowRight' || event.key === ' ' || event.key === 'PageDown') {
@@ -1325,9 +1300,6 @@
       } else if (event.key === 'ArrowLeft' || event.key === 'PageUp') {
         event.preventDefault();
         prevSlide();
-      } else if (event.key === 'n' || event.key === 'N') {
-        event.preventDefault();
-        toggleNotes();
       } else if (event.key === 'Home') {
         event.preventDefault();
         currentSlideIndex = 1;
