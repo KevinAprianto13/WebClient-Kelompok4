@@ -980,7 +980,7 @@
       </section>
 
       <!-- Slide 5: useState -->
-      <section class="slide" id="slide-5" data-notes="Jelaskan useState untuk navbar (toggle mobile menu) dan form kontak. Tekankan penggunaan controlled inputs di Contact.js yang menampung data form dalam satu objek state terpusat.">
+      <section class="slide" id="slide-5" data-notes="Jelaskan useState untuk navbar (toggle mobile menu), form kontak, serta data quotes API di About.js. Tekankan penggunaan controlled inputs di Contact.js dan manajemen loading state di About.js.">
         <div class="slide-content">
           <div class="slide-header">
             <span class="tag-category">INTERAKTIVITAS</span>
@@ -995,6 +995,10 @@
               <div class="card-glass">
                 <h3>2. Form Kendali (Contact.js)</h3>
                 <p>Mengumpulkan input field secara asinkron lewat state objek, memudahkan penanganan pengiriman data form.</p>
+              </div>
+              <div class="card-glass">
+                <h3>3. Loader & Quote (About.js)</h3>
+                <p>Mengelola status pemuatan data (`loading`) dan penyimpanan objek kutipan (`insight`) untuk integrasi API.</p>
               </div>
             </div>
             <div class="code-box">
@@ -1016,7 +1020,7 @@
       </section>
 
       <!-- Slide 6: useEffect & API -->
-      <section class="slide" id="slide-6" data-notes="Terangkan integrasi fetch asinkron. Data ditarik dari API eksternal saat komponen dipasang ke DOM. Kita membuat fallback lokal yang menjamin UI tidak blank jika terdapat kendala jaringan.">
+      <section class="slide" id="slide-6" data-notes="Terangkan integrasi fetch asinkron pada halaman About.js. Data ditarik dari API eksternal saat komponen dipasang ke DOM. Kita membuat fallback lokal yang menjamin UI tidak blank jika terdapat kendala jaringan.">
         <div class="slide-content">
           <div class="slide-header">
             <span class="tag-category">DATA DINAMIS</span>
@@ -1024,7 +1028,7 @@
           </div>
           <div class="slide-body grid-layout-2">
             <div class="flex-col">
-              <p>Memasukkan data dinamis secara real-time dari Public API pihak ketiga menggunakan hook `useEffect` untuk kebutuhan UAS:</p>
+              <p>Memasukkan data dinamis secara real-time dari Public API pihak ketiga menggunakan hook `useEffect` pada halaman **About.js**:</p>
               <div class="card-glass">
                 <h3>Endpoint Pihak Ketiga</h3>
                 <p>Menarik data quotes acak bertema teknologi secara asinkron dari endpoint `https://dummyjson.com/quotes/random`.</p>
