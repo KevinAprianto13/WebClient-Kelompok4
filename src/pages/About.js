@@ -47,6 +47,18 @@ function About() {
             </p>
 
             {/* Dynamic API Quote Box */}
+            {loading && (
+              <div style={{
+                borderLeft: '2px solid var(--color-gray-200)',
+                paddingLeft: 'var(--space-4)',
+                marginTop: 'var(--space-6)',
+                color: 'var(--color-gray-400)',
+                fontStyle: 'italic',
+                fontSize: '0.9rem'
+              }}>
+                Loading insight...
+              </div>
+            )}
             {!loading && insight && (
               <blockquote style={{
                 fontFamily: 'var(--font-body)',

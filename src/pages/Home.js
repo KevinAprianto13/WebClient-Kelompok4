@@ -186,7 +186,7 @@ function Home() {
             <Link to="/contact" className="btn btn-primary" style={{ background: 'var(--color-white)', color: 'var(--color-black)', borderColor: 'var(--color-white)' }}>
               Initiate Project
             </Link>
-            <a href="/#" className="btn btn-outline-white">Download Credentials</a>
+            <button type="button" className="btn btn-outline-white">Download Credentials</button>
           </div>
         </div>
       </section>

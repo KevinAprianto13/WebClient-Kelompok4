@@ -6,15 +6,15 @@ function Footer() {
         
         <div className="footer__links-group footer__links-group--primary">
           <a href="slides.html" target="_blank" rel="noopener noreferrer">Slides Presentasi</a>
-          <a href="#!">Privacy Policy</a>
-          <a href="#!">Terms of Service</a>
-          <a href="#!">Cookies</a>
-          <a href="#!">Sitemap</a>
+          <button type="button">Privacy Policy</button>
+          <button type="button">Terms of Service</button>
+          <button type="button">Cookies</button>
+          <button type="button">Sitemap</button>
         </div>
         
         <div className="footer__links-group footer__links-group--secondary">
-          <a href="#!">Twitter</a>
-          <a href="#!">LinkedIn</a>
+          <button type="button">Twitter</button>
+          <button type="button">LinkedIn</button>
         </div>
         
         <span className="footer__copy">© 2024 ARCHI-TECH GLOBAL SYSTEMS. ALL RIGHTS RESERVED.</span>

@@ -304,14 +304,20 @@ textarea.form-control {
   align-items: center;
 }
 
-.footer__links-group a {
+.footer__links-group a,
+.footer__links-group button {
   font-family: var(--font-body);
   font-size: 0.82rem;
   color: var(--color-gray-600);
   transition: color var(--transition-fast);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 }
 
-.footer__links-group a:hover {
+.footer__links-group a:hover,
+.footer__links-group button:hover {
   color: var(--color-black);
 }
 
