@@ -179,7 +179,7 @@ function Services() {
                 <textarea id="reqOverview" className="form-control" placeholder="Describe the structural goals..." />
               </div>
               <div className="full-width">
-                <button type="submit" className="btn btn-primary" style={{ background: 'var(--color-white)', color: 'var(--color-black)', borderColor: 'var(--color-white)' }}>
+                <button type="submit" className="btn btn-primary-white">
                   Request a Quote
                 </button>
               </div>

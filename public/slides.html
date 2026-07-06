@@ -912,44 +912,50 @@
       </section>
 
       <!-- Slide 3: Komparasi Visual -->
-      <section class="slide" id="slide-3" data-notes="Jelaskan bahwa estetika premium di Figma direalisasikan sepenuhnya pada web live. Jelaskan konsistensi layout grid, penataan warna gelap minimalis, serta rendering asset responsif di Vercel.">
+      <section class="slide" id="slide-3" data-notes="Buka tab baru untuk memperlihatkan desain Figma (UTS) secara berdampingan dengan website live (UAS). Tunjukkan bagian layout form kontak dan Navbar.">
         <div class="slide-content">
           <div class="slide-header">
             <span class="tag-category">KONSISTENSI UI/UX</span>
-            <h2 class="slide-title">Komparasi Visual (Desain UTS vs Hasil UAS)</h2>
+            <h2 class="slide-title">Komparasi Visual: Desain UTS vs Hasil UAS</h2>
           </div>
           <div class="slide-body grid-layout-2">
             <div class="flex-col">
-              <p>Mendeliver 100% konsistensi letak antarmuka visual dari file desain Figma/Canva saat UTS ke dalam markup kode final.</p>
-              <div class="card-glass">
-                <h3>Penyelarasan Presisi</h3>
-                <p>Skema warna gelap, tipografi sans-serif modern, tata letak grid, dan rasio visual dieksekusi dengan presisi di peramban.</p>
+              <div class="card-glass" style="margin-bottom: 12px; border-left: 3px solid var(--color-accent);">
+                <h3 style="display: flex; align-items: center;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="18" height="18" style="margin-right: 8px;"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg> Pencapaian Visual</h3>
+                <p style="font-size: 1.1rem; font-weight: bold; margin-top: 4px;">Realisasi 100% dari Blueprint UTS</p>
+              </div>
+              <div class="card-glass" style="margin-top: auto; border-left: 3px solid #3b82f6;">
+                <h3 style="display: flex; align-items: center;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="18" height="18" style="margin-right: 8px;"><path stroke-linecap="round" stroke-linejoin="round" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path></svg> Responsivitas (Bootstrap 5)</h3>
+                <ul style="margin-top: 8px; padding-left: 20px; font-size: 0.95rem; line-height: 1.6; color: var(--color-text-muted);">
+                  <li>Integrasi <em>Grid System</em> (<code>.row</code>, <code>.col-md-6</code>)</li>
+                  <li>Optimal di Desktop &amp; Mobile</li>
+                </ul>
               </div>
             </div>
-            <div class="flex-col" style="gap: 12px;">
+            <div class="flex-col" style="gap: 16px;">
               <div class="split-panel">
-                <div class="panel-header">
-                  <span>UTS Blueprint (Figma)</span>
-                  <span class="badge-orange">UTS DESAIN</span>
+                <div class="panel-header" style="background: rgba(249, 115, 22, 0.1); border-bottom: 1px solid rgba(249, 115, 22, 0.2);">
+                  <span style="color: #fdba74; font-weight: 600;">Desain Figma (UTS)</span>
+                  <span class="badge-orange">STATIS</span>
                 </div>
-                <div class="panel-body">
-                  <ul class="check-list">
-                    <li>Rancangan statis grid 4 kolom</li>
-                    <li>Hero section dengan gambar blueprint</li>
-                    <li>Struktur tata letak statis</li>
+                <div class="panel-body" style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 140px;">
+                  <ul class="check-list" style="margin-bottom: 16px; width: 100%;">
+                    <li>Visual Monokromatik</li>
+                    <li>Grid Desktop Statis</li>
+                    <li>Wireframe Kasar</li>
                   </ul>
+                  <a href="https://www.figma.com/design/nzJK0CTXeP0ps5zAvFw7PE/Kelompo4-WDC?node-id=6-667&t=PZw5CK7z3Gmxd1SL-1" target="_blank" class="btn-link" style="font-size: 12px; padding: 8px 16px; background: rgba(249, 115, 22, 0.1); border-color: rgba(249, 115, 22, 0.3); color: #fdba74; display: flex; align-items: center; text-decoration: none;">Buka di Figma <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 6px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
                 </div>
               </div>
               <div class="split-panel">
-                <div class="panel-header">
-                  <span>Realisasi Web Live (UAS)</span>
-                  <span class="badge-green">UAS IMPLEMENTASI</span>
+                <div class="panel-header" style="background: rgba(16, 185, 129, 0.1); border-bottom: 1px solid rgba(16, 185, 129, 0.2);">
+                  <span style="color: #6ee7b7; font-weight: 600;">Web Live (UAS)</span>
+                  <span class="badge-green">DINAMIS</span>
                 </div>
-                <div class="panel-body">
-                  <ul class="check-list">
-                    <li>Penerapan CSS Grid & Flexbox responsif</li>
-                    <li>Asset dioptimalkan penuh tanpa lag</li>
-                    <li>Antarmuka hidup dengan efek hover</li>
+                <div class="panel-body" style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 140px;">
+                  <ul class="check-list" style="width: 100%;">
+                    <li>Transisi &amp; <em>Hover</em> Aktif</li>
+                    <li><em>Layout Fluid</em> Merespons Layar</li>
                   </ul>
                 </div>
               </div>
@@ -959,36 +965,45 @@
       </section>
 
       <!-- Slide 4: Arsitektur React -->
-      <section class="slide" id="slide-4" data-notes="Sebutkan pemisahan komponen global (Navbar, Footer) dari halaman utama (pages). Hal ini membuat pengerjaan tim lebih modular dan mematuhi instruksi pemecahan file React.">
+      <section class="slide" id="slide-4" data-notes="Sebutkan pemisahan komponen global (Navbar, Footer) dari halaman utama (pages). Buka VS Code untuk menunjukkan file App.js yang mengatur React Router DOM.">
         <div class="slide-content">
           <div class="slide-header">
-            <span class="tag-category">ARSTEKTUR REACT</span>
+            <span class="tag-category">ARSITEKTUR REACT</span>
             <h2 class="slide-title">Arsitektur React.js & Modularitas Komponen</h2>
           </div>
           <div class="slide-body grid-layout-2">
             <div class="flex-col">
-              <p>UI modular dikelompokkan ke dalam direktori terpisah untuk meningkatkan kerapian kode dan menyederhanakan penelusuran galat (*debugging*):</p>
-              <div class="card-glass">
-                <h3>Global & Local Separation</h3>
-                <p>Komponen pembungkus diletakkan di komponen global (`components/`), sementara visual inti berada di subdirektori (`pages/`).</p>
+              <div class="card-glass" style="margin-bottom: 8px;">
+                <h3 style="font-size: 1.15rem; display: flex; align-items: center;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="18" height="18" style="margin-right: 8px;"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg> Single Page App (SPA)</h3>
+                <p style="font-size: 0.95rem; color: var(--color-text-muted); margin-top: 4px;">Routing instan tanpa <em>refresh</em> via <code>react-router-dom</code>.</p>
               </div>
-              <div class="card-glass">
-                <h3>Routing Kompatibel</h3>
-                <p>Mengonfigurasi client-side routing menggunakan `HashRouter` di `App.js` untuk integrasi deployment hosting statis yang aman.</p>
+              <div class="card-glass" style="margin-bottom: 8px; border-left: 3px solid #60a5fa;">
+                <h3 style="color: #60a5fa; display: flex; align-items: center;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="18" height="18" style="margin-right: 8px;"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> Global <code>/components</code></h3>
+                <ul style="margin-top: 6px; padding-left: 20px; font-size: 0.95rem; line-height: 1.5; color: var(--color-text-muted);">
+                  <li>Elemen konstan (Navbar, Footer)</li>
+                  <li>Manajemen UI terpusat</li>
+                </ul>
+              </div>
+              <div class="card-glass" style="border-left: 3px solid #a78bfa;">
+                <h3 style="color: #a78bfa; display: flex; align-items: center;"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="18" height="18" style="margin-right: 8px;"><path stroke-linecap="round" stroke-linejoin="round" d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline stroke-linecap="round" stroke-linejoin="round" points="14 2 14 8 20 8"/></svg> Page-Level <code>/pages</code></h3>
+                <ul style="margin-top: 6px; padding-left: 20px; font-size: 0.95rem; line-height: 1.5; color: var(--color-text-muted);">
+                  <li>Komponen spesifik halaman (Home, About)</li>
+                  <li>Diinjeksi dinamis ke <code>&lt;Routes&gt;</code></li>
+                </ul>
               </div>
             </div>
-            <div class="tree-box">
-              src/<br>
-              ├── components/ <span class="comment"># Komponen Modular</span><br>
-              │   ├── <span class="file">Navbar.js</span><br>
-              │   └── <span class="file">Footer.js</span><br>
-              ├── pages/ <span class="comment"># Tampilan Utama</span><br>
-              │   ├── <span class="file">Home.js</span>, <span class="file">About.js</span><br>
-              │   ├── <span class="file">Services.js</span>, <span class="file">Contact.js</span><br>
-              │   └── <span class="file">NotFound.js</span><br>
-              ├── styles/ <span class="comment"># CSS per Halaman</span><br>
-              │   ├── <span class="file">variables.css</span>, <span class="file">base.css</span>...<br>
-              └── <span class="file">App.js</span> <span class="comment"># Root Konfigurasi Rute</span>
+            <div class="tree-box" style="font-size: 13px;">
+              <span style="color: #cbd5e1; font-weight: bold;">📁 src/</span><br>
+              <span style="color: #94a3b8;">├──</span> 📁 components/ <span class="comment"># UI Element Global</span><br>
+              <span style="color: #94a3b8;">│   ├──</span> <span class="file">Navbar.js</span><br>
+              <span style="color: #94a3b8;">│   └──</span> <span class="file">Footer.js</span><br>
+              <span style="color: #94a3b8;">├──</span> 📁 pages/ <span class="comment"># Tampilan Utama SPA</span><br>
+              <span style="color: #94a3b8;">│   ├──</span> <span class="file">Home.js</span>, <span class="file">About.js</span><br>
+              <span style="color: #94a3b8;">│   ├──</span> <span class="file">Services.js</span>, <span class="file">Contact.js</span><br>
+              <span style="color: #94a3b8;">│   └──</span> <span class="file">NotFound.js</span><br>
+              <span style="color: #94a3b8;">├──</span> 📁 styles/ <span class="comment"># Modul Vanilla CSS</span><br>
+              <span style="color: #94a3b8;">│   ├──</span> <span class="file">variables.css</span>, <span class="file">base.css</span>...<br>
+              <span style="color: #94a3b8;">└──</span> <span class="file">App.js</span> <span class="comment"># Akar Konfigurasi HashRouter</span>
             </div>
           </div>
         </div>

@@ -175,6 +175,18 @@ p {
   color: var(--color-black);
 }
 
+/* White-on-dark button: used inside dark CTA sections */
+.btn-primary-white {
+  background: var(--color-white);
+  color: var(--color-black);
+  border: 2px solid var(--color-white);
+}
+
+.btn-primary-white:hover {
+  background: var(--color-gray-100);
+  border-color: var(--color-gray-100);
+}
+
 /* ===========================
    Form Styles (shared)
    =========================== */

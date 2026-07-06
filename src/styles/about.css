@@ -463,3 +463,71 @@
     width: 100%;
   }
 }
+
+/* ===========================
+   About Page — Utility Classes
+   (Extracted from inline styles)
+   =========================== */
+
+/* Body-level paragraphs (mission/vision/identity sections) */
+.body-text {
+  color: var(--color-gray-600);
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+.body-text--spaced {
+  color: var(--color-gray-600);
+  line-height: 1.6;
+  font-size: 15px;
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+/* Timeline item paragraphs */
+.timeline-text {
+  color: var(--color-gray-600);
+  line-height: 1.5;
+  font-size: 13.5px;
+  margin-top: var(--space-2);
+}
+
+/* API Quote loading placeholder */
+.quote-loading {
+  border-left: 2px solid var(--color-gray-200);
+  padding-left: var(--space-4);
+  margin-top: var(--space-6);
+  color: var(--color-gray-400);
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+/* API Quote blockquote */
+.quote-blockquote {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--color-gray-600);
+  font-style: italic;
+  border-left: 2px solid var(--color-black);
+  padding-left: var(--space-4);
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-2);
+}
+
+/* API Quote cite */
+.quote-cite {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--color-gray-400);
+  font-weight: 600;
+  font-style: normal;
+  margin-top: var(--space-2);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Centered divider */
+.divider--center {
+  margin-inline: auto;
+}
