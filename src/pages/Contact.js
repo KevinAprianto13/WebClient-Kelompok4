@@ -40,8 +40,8 @@ function Contact() {
         <div className="container contact-grid">
           <div className="contact-form">
             <form onSubmit={handleSubmit} className="contact-form__fields">
-              <div className="form-row">
-                <div className="form-group">
+              <div className="row mb-3">
+                <div className="col-md-6 form-group">
                   <label htmlFor="fullName">Full Name</label>
                   <input
                     id="fullName"
@@ -54,7 +54,7 @@ function Contact() {
                     required
                   />
                 </div>
-                <div className="form-group">
+                <div className="col-md-6 form-group">
                   <label htmlFor="email">Email Address</label>
                   <input
                     id="email"

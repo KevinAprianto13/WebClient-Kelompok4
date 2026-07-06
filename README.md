@@ -126,5 +126,5 @@ Proyek ini dibuat untuk keperluan akademik — UAS Mata Kuliah Web Client Develo
 ---
 
 <div align="center">
-  <sub>© 2024 Kelompok 4 — Web Client Development</sub>
+  <sub>© 2026 Kelompok 4 — Web Client Development</sub>
 </div>
