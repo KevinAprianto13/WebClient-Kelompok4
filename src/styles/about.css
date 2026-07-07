@@ -22,16 +22,7 @@
   width: 100%;
 }
 
-.about-hero h1,
-.mission-vision h2,
-.history h2,
-.leadership h2,
-.join-cta h2 {
-  font-family: var(--font-body) !important;
-  text-transform: none !important;
-  font-weight: 700 !important;
-  letter-spacing: -0.02em !important;
-}
+/* Removed heading font overrides to inherit Bebas Neue from base.css */
 
 .about-hero__label {
   font-family: var(--font-mono);
