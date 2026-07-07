@@ -1,6 +1,6 @@
 #  ARCHI-TECH — Company Profile Website
 
-> Proyek Ujian Tengah Semester (UTS) — Mata Kuliah Web Client Development
+> Proyek Ujian Akhir Semester (UAS) — Mata Kuliah Web Client Development
 
 <div align="center">
 
@@ -15,26 +15,26 @@
 
 ---
 
-## 📋 Deskripsi Proyek
+## <img src="https://api.iconify.design/fa6-solid/clipboard-list.svg?color=%231572B6" width="28" height="28" alt="clipboard icon"/> Deskripsi Proyek
 
-**ARCHI-TECH** adalah website *company profile* yang dirancang sebagai proyek UTS mata kuliah **Web Client Development**. Website ini menampilkan identitas perusahaan fiktif yang bergerak di bidang arsitektur sistem dan infrastruktur digital.
+**ARCHI-TECH** adalah website *company profile* yang dirancang sebagai proyek UAS mata kuliah **Web Client Development**. Website ini menampilkan identitas perusahaan fiktif yang bergerak di bidang arsitektur sistem dan infrastruktur digital.
 
 Website dikembangkan dengan desain yang **responsif** sehingga dapat diakses dengan nyaman melalui perangkat desktop maupun mobile.
 
 ---
 
-## 🗂️ Halaman
+## <img src="https://api.iconify.design/fa6-solid/folder-open.svg?color=%231572B6" width="28" height="28" alt="folder icon"/> Halaman
 
 | Halaman | Deskripsi |
 |---------|-----------|
-| 🏠 **Home** | Landing page dengan hero section, prinsip perusahaan, dan featured services |
-| 👥 **About** | Profil perusahaan, misi & visi, timeline sejarah, dan tim kepemimpinan |
-| ⚙️ **Services** | Daftar layanan lengkap beserta form permintaan quote |
-| 📬 **Contact** | Form kontak, detail kantor, dan lokasi cabang |
+| <img src="https://api.iconify.design/fa6-solid/house.svg?color=%231572B6" width="16" height="16" alt="home icon"/> **Home** | Landing page dengan hero section, prinsip perusahaan, dan featured services |
+| <img src="https://api.iconify.design/fa6-solid/users.svg?color=%231572B6" width="16" height="16" alt="users icon"/> **About** | Profil perusahaan, misi & visi, timeline sejarah, dan tim kepemimpinan |
+| <img src="https://api.iconify.design/fa6-solid/gear.svg?color=%231572B6" width="16" height="16" alt="gear icon"/> **Services** | Daftar layanan lengkap beserta form permintaan quote |
+| <img src="https://api.iconify.design/fa6-solid/envelope-open-text.svg?color=%231572B6" width="16" height="16" alt="contact icon"/> **Contact** | Form kontak, detail kantor, dan lokasi cabang |
 
 ---
 
-## 👨‍💻 Anggota Kelompok 4
+## <img src="https://api.iconify.design/fa6-solid/code.svg?color=%231572B6" width="28" height="28" alt="code icon"/> Anggota Kelompok 4
 
 | NIM | Nama |
 |-----|------|
@@ -46,7 +46,7 @@ Website dikembangkan dengan desain yang **responsif** sehingga dapat diakses den
 
 ---
 
-## 🛠️ Teknologi yang Digunakan
+## <img src="https://api.iconify.design/fa6-solid/screwdriver-wrench.svg?color=%231572B6" width="28" height="28" alt="tools icon"/> Teknologi yang Digunakan
 
 - **HTML5** — Struktur dan semantik halaman
 - **CSS3** — Styling, animasi, dan responsivitas (Vanilla CSS)
@@ -57,7 +57,7 @@ Website dikembangkan dengan desain yang **responsif** sehingga dapat diakses den
 
 ---
 
-## 🚀 Cara Menjalankan Proyek
+## <img src="https://api.iconify.design/fa6-solid/rocket.svg?color=%231572B6" width="28" height="28" alt="rocket icon"/> Cara Menjalankan Proyek
 
 ### Prerequisites
 Pastikan sudah menginstal [Node.js](https://nodejs.org/) di komputer kamu.
@@ -82,15 +82,15 @@ Buka browser dan akses `http://localhost:3000`
 
 ---
 
-## 🎨 Desain
+## <img src="https://api.iconify.design/fa6-solid/palette.svg?color=%231572B6" width="28" height="28" alt="palette icon"/> Desain
 
 Desain UI/UX dibuat menggunakan **Figma** sebelum implementasi ke kode.
 
-🔗 [Lihat Figma Design File](https://www.figma.com/design/nzJK0CTXeP0ps5zAvFw7PE/Kelompo4-WDC?node-id=1-747&t=rbD2oHlugzK8E99E-1)
+<img src="https://api.iconify.design/fa6-solid/link.svg?color=%231572B6" width="16" height="16" alt="link icon"/> [Lihat Figma Design File](https://www.figma.com/design/nzJK0CTXeP0ps5zAvFw7PE/Kelompo4-WDC?node-id=1-747&t=rbD2oHlugzK8E99E-1)
 
 ---
 
-## 📁 Struktur Proyek
+## <img src="https://api.iconify.design/fa6-solid/folder-tree.svg?color=%231572B6" width="28" height="28" alt="folder tree icon"/> Struktur Proyek
 
 ```
 archi-tech/
@@ -119,12 +119,12 @@ archi-tech/
 
 ---
 
-## 📝 Lisensi
+## <img src="https://api.iconify.design/fa6-solid/file-contract.svg?color=%231572B6" width="28" height="28" alt="license icon"/> Lisensi
 
-Proyek ini dibuat untuk keperluan akademik — UTS Mata Kuliah Web Client Development.
+Proyek ini dibuat untuk keperluan akademik — UAS Mata Kuliah Web Client Development.
 
 ---
 
 <div align="center">
-  <sub>© 2024 Kelompok 4 — Web Client Development</sub>
+  <sub>© 2026 Kelompok 4 — Web Client Development</sub>
 </div>

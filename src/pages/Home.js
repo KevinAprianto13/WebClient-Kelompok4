@@ -166,10 +166,10 @@ function Home() {
           <div className="identity__right">
             <span className="label-tag">OUR IDENTITY</span>
             <h2>About ARCHI-TECH Global Systems</h2>
-            <p style={{ color: 'var(--color-gray-600)', lineHeight: '1.6', fontSize: '15px' }}>
+            <p className="body-text">
               ARCHI-TECH Global Systems is a leading engineering and design firm specializing in resilient digital and physical infrastructures. We develop advanced system frameworks, automate enterprise pipelines, and secure cloud environments to power modern global enterprises. Our systems-first methodology guarantees that every layer of structure is built to scale and withstand the pressure of high-performance operations.
             </p>
-            <p style={{ color: 'var(--color-gray-600)', lineHeight: '1.6', fontSize: '15px', marginTop: 'var(--space-4)', marginBottom: 'var(--space-8)' }}>
+            <p className="body-text body-text--spaced">
               With a dedicated team of systems architects and structural engineers, we deliver state-of-the-art architectures that optimize data flow and system integration. We bridge the gap between complex requirements and clear, maintainable implementations.
             </p>
             <Link to="/about" className="btn btn-outline-black-box">
@@ -183,10 +183,10 @@ function Home() {
           <h2>Ready to construct your vision?</h2>
           <p>Contact our lead engineers to begin the architectural consultation phase for your project.</p>
           <div className="cta-banner__actions">
-            <Link to="/contact" className="btn btn-primary" style={{ background: 'var(--color-white)', color: 'var(--color-black)', borderColor: 'var(--color-white)' }}>
+            <Link to="/contact" className="btn btn-primary-white">
               Initiate Project
             </Link>
-            <a href="/#" className="btn btn-outline-white">Download Credentials</a>
+            <button type="button" className="btn btn-outline-white">Download Credentials</button>
           </div>
         </div>
       </section>

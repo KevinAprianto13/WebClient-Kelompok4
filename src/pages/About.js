@@ -47,29 +47,15 @@ function About() {
             </p>
 
             {/* Dynamic API Quote Box */}
+            {loading && (
+              <div className="quote-loading">
+                Loading insight...
+              </div>
+            )}
             {!loading && insight && (
-              <blockquote style={{
-                fontFamily: 'var(--font-body)',
-                fontSize: '0.95rem',
-                lineHeight: '1.5',
-                color: 'var(--color-gray-600)',
-                fontStyle: 'italic',
-                borderLeft: '2px solid var(--color-black)',
-                paddingLeft: 'var(--space-4)',
-                marginTop: 'var(--space-6)',
-                marginBottom: 'var(--space-2)'
-              }}>
+              <blockquote className="quote-blockquote">
                 "{insight.quote}"
-                <cite style={{
-                  display: 'block',
-                  fontSize: '0.8rem',
-                  color: 'var(--color-gray-400)',
-                  fontWeight: '600',
-                  fontStyle: 'normal',
-                  marginTop: 'var(--space-2)',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.05em'
-                }}>
+                <cite className="quote-cite">
                   — {insight.author}
                 </cite>
               </blockquote>
@@ -85,13 +71,13 @@ function About() {
         <div className="container mission-vision__grid">
           <div className="mission-vision__column">
             <h2>Our Mission</h2>
-            <p style={{ color: 'var(--color-gray-600)', lineHeight: '1.6', fontSize: '15px' }}>
+            <p className="body-text">
               To engineer highly resilient and scale-ready system architectures that empower global organizations to automate complex workflows, secure operations under a zero-trust model, and optimize performance.
             </p>
           </div>
           <div className="mission-vision__column">
             <h2>Our Vision</h2>
-            <p style={{ color: 'var(--color-gray-600)', lineHeight: '1.6', fontSize: '15px' }}>
+            <p className="body-text">
               To establish the global benchmark for technical infrastructure engineering, defining modern standards for zero-trust cloud frameworks, modular design, and robust system automation.
             </p>
           </div>
@@ -108,7 +94,7 @@ function About() {
             <article className="timeline-item">
               <span className="timeline-item__year timeline-item__year--solid">2010</span>
               <h3>The Foundation</h3>
-              <p style={{ color: 'var(--color-gray-600)', lineHeight: '1.5', fontSize: '13.5px', marginTop: 'var(--space-2)' }}>
+              <p className="timeline-text">
                 ARCHI-TECH was established in California with a core focus on structural systems design and systems engineering consultation.
               </p>
             </article>
@@ -116,7 +102,7 @@ function About() {
             <article className="timeline-item">
               <span className="timeline-item__year timeline-item__year--outline">2015</span>
               <h3>Global Expansion</h3>
-              <p style={{ color: 'var(--color-gray-600)', lineHeight: '1.5', fontSize: '13.5px', marginTop: 'var(--space-2)' }}>
+              <p className="timeline-text">
                 Opened offices in New York and London, expanding our engineering services to financial institutions and large-scale cloud ecosystems.
               </p>
             </article>
@@ -124,7 +110,7 @@ function About() {
             <article className="timeline-item">
               <span className="timeline-item__year timeline-item__year--outline">2023</span>
               <h3>Digital Shift</h3>
-              <p style={{ color: 'var(--color-gray-600)', lineHeight: '1.5', fontSize: '13.5px', marginTop: 'var(--space-2)' }}>
+              <p className="timeline-text">
                 Launched our automated integration suite and transitioned to offering specialized zero-trust cloud and protocol modernization solutions.
               </p>
             </article>
@@ -136,7 +122,7 @@ function About() {
         <div className="container">
           <div className="leadership__header">
             <h2>Leadership Team</h2>
-            <div className="divider" style={{ marginInline: 'auto' }} />
+            <div className="divider divider--center" />
           </div>
           <div className="team-grid">
             {[
@@ -163,7 +149,7 @@ function About() {
           <h2>Join Our Structural Movement.</h2>
           <div className="join-cta__actions">
             <button type="button" className="btn btn-outline-white">View Openings</button>
-            <Link to="/contact" className="btn btn-primary" style={{ background: 'var(--color-white)', color: 'var(--color-black)', borderColor: 'var(--color-white)' }}>
+            <Link to="/contact" className="btn btn-primary-white">
               Contact Us
             </Link>
           </div>

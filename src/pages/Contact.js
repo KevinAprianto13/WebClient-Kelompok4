@@ -40,8 +40,8 @@ function Contact() {
         <div className="container contact-grid">
           <div className="contact-form">
             <form onSubmit={handleSubmit} className="contact-form__fields">
-              <div className="form-row">
-                <div className="form-group">
+              <div className="row mb-3">
+                <div className="col-md-6 form-group">
                   <label htmlFor="fullName">Full Name</label>
                   <input
                     id="fullName"
@@ -51,9 +51,10 @@ function Contact() {
                     placeholder="John Doe"
                     value={formData.fullName}
                     onChange={handleChange}
+                    required
                   />
                 </div>
-                <div className="form-group">
+                <div className="col-md-6 form-group">
                   <label htmlFor="email">Email Address</label>
                   <input
                     id="email"
@@ -63,6 +64,7 @@ function Contact() {
                     placeholder="email@archi-tech.com"
                     value={formData.email}
                     onChange={handleChange}
+                    required
                   />
                 </div>
               </div>
@@ -76,6 +78,7 @@ function Contact() {
                   placeholder="Project Inquiry"
                   value={formData.subject}
                   onChange={handleChange}
+                  required
                 />
               </div>
               <div className="form-group">
@@ -87,6 +90,7 @@ function Contact() {
                   placeholder="Describe your architectural requirements..."
                   value={formData.message}
                   onChange={handleChange}
+                  required
                 />
               </div>
               <button type="submit" className="btn btn-primary-black">
@@ -176,7 +180,7 @@ function Contact() {
             <article className="office-card" key={office.title}>
               <div className="office-card__title">{office.title}</div>
               <div className="office-card__address" dangerouslySetInnerHTML={{ __html: office.address }} />
-              <a href="/#" className="office-card__link">View on map</a>
+              <button type="button" className="office-card__link">View on map</button>
             </article>
           ))}
         </div>
