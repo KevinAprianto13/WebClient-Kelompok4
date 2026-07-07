@@ -32,7 +32,7 @@ function About() {
         setLoading(false);
       });
   }, []);
-
+  
   return (
     <main>
       <section className="about-hero">

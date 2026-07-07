@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -47,9 +47,9 @@ function Navbar() {
         </ul>
 
         <div className="navbar__cta">
-          <NavLink to="/contact" className="btn btn-primary">
+          <Link to="/contact" className="btn btn-primary">
             Get Started
-          </NavLink>
+          </Link>
           <button
             type="button"
             className="navbar__hamburger"
